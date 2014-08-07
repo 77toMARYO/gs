@@ -1,0 +1,18 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Github:</strong>
+  <%= @user.github_id %>
+</p>
+
+<p>
+  <strong>Used point:</strong>
+  <%= @user.used_point %>
+</p>
+
+<p>
+  <strong>Commits:</strong>
+  <%= commits %>
+</p>
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>

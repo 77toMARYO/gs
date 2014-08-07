@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  github_id: MyString
+  used_point: 1
+
+two:
+  github_id: MyString
+  used_point: 1
