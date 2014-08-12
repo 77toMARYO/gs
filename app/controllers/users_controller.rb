@@ -2,7 +2,7 @@ require 'json'
 require 'open-uri'
 
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:show, :edit, :update, :destroy, :use_point]
 
   # GET /users
   # GET /users.json
@@ -10,13 +10,15 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
-  def user
-    
   # GET /users/1
   # GET /users/1.json
   def show
   end
   
+  def use_point
+    used = @user.used_point + 1
+    @user.update_column(:used_point, used)
+  end
   # GET /users/new
   def new
     @user = User.new
