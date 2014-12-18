@@ -12,12 +12,13 @@
 
 <p>
   <strong>未使用ポイント:</strong>
-  <%= commits-@user.used_point %>
+  <%= commits - @user.used_point %>
 </p>
 <p>
   <strong>Commits:</strong>
   <%= commits %>
 </p>
-<%= button_to 'Use', use_point_user_path(@user), remote: true %>
+<%= button_to 'Color', use_point_user_path(@user), remote: true %>
+<%= button_to 'Size', use_point_user_path(@user), remote: true %>
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>

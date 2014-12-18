@@ -13,19 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20140807095311) do
 
-  create_table "characters", force: true do |t|
-    t.string   "user_id"
-    t.integer  "user_character"
-    t.integer  "rgb_r"
-    t.integer  "rgb_g"
-    t.integer  "rgb_b"
-    t.integer  "bright"
-    t.integer  "dark"
-    t.integer  "size"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "users", force: true do |t|
     t.string   "github_id"
     t.integer  "used_point"
