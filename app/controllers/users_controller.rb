@@ -2,7 +2,7 @@ require 'json'
 require 'open-uri'
 
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy, :use_point]
+  before_action :set_user, only: [:show, :edit, :update, :destroy, :use_point, :red, :green, :blue]
 
   # GET /users
   # GET /users.json
@@ -18,7 +18,49 @@ class UsersController < ApplicationController
   def use_point
     used = @user.used_point + 1
     @user.update_column(:used_point, used)
+
+    render 'show'
   end
+
+  def red
+    @user.update_column(:red, @user.red + 1)
+    r = @user.red
+    g = @user.green
+    b = @user.blue
+    rad = (60.0 * Math::PI/180.0)
+    x = r + (-g * Math.cos(rad)) + ( -b * Math.cos(rad))
+    y = 0.0 + g * Math.sin(rad) + ( -b * Math.sin(rad))
+    @deg = Math.atan(y/x) * 180.0 / Math::PI
+
+    render 'change_color'
+  end
+
+  def green
+    @user.update_column(:green, @user.green + 1)
+    r = @user.red
+    g = @user.green
+    b = @user.blue
+    rad = (60.0 * Math::PI/180.0)
+    x = r + (-g * Math.cos(rad)) + ( -b * Math.cos(rad))
+    y = 0.0 + g * Math.sin(rad) + ( -b * Math.sin(rad))
+    @deg = Math.atan(y/x) * 180.0 / Math::PI
+
+    render 'change_color'
+  end
+
+  def blue
+    @user.update_column(:blue, @user.blue + 1)
+    r = @user.red
+    g = @user.green
+    b = @user.blue
+    rad = (60.0 * Math::PI/180.0)
+    x = r + (-g * Math.cos(rad)) + ( -b * Math.cos(rad))
+    y = 0.0 + g * Math.sin(rad) + ( -b * Math.sin(rad))
+    @deg = Math.atan(y/x) * 180.0 / Math::PI
+
+    render 'change_color'
+  end
+
   # GET /users/new
   def new
     @user = User.new
@@ -33,6 +75,10 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     @user.used_point = 0
+    @user.red = 0
+    @user.green = 0
+    @user.blue = 0
+
     respond_to do |format|
       if @user.save
         format.html { redirect_to @user, notice: 'User was successfully created.' }

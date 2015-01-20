@@ -1,3 +1,14 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+$deg: 300deg;
+
+img{
+    filter: hue-rotate($deg);
+    -webkit-filter: hue-rotate($deg);
+    -moz-filter: hue-rotate($deg);
+    -o-filter: hue-rotate($deg);
+    -ms-filter: hue-rotate($deg);
+}

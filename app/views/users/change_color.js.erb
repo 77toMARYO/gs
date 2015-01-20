@@ -1,0 +1,3 @@
+deg = "" + <%= @deg %> + "deg";
+console.log(deg);
+$('#cat').html('<img src="../exchara2.png" width="<%= @user.used_point * 0.2 + 100 %>" class="pos" style="filter: hue-rotate(' + deg + '); -webkit-filter: hue-rotate(' + deg + '); -moz-filter: hue-rotate(' + deg + '); -o-filter: hue-rotate(' + deg + '); -ms-filter: hue-rotate(' + deg + ');" >');

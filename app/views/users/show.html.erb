@@ -1,13 +1,23 @@
 <p id="notice"><%= notice %></p>
 
-<p>
+<p class="githubid">
   <strong>Github:</strong>
   <%= @user.github_id %>
 </p>
 
+<style type="text/css"><!--
+.pos { position:absolute; left:390px; top:200px; }
+--></style>
+
+<div id="cat">
+<img src="../exchara2.png" width="<%= @user.used_point * 0.2 + 100 %>" class="pos" >
+</div>
+
 <p>
   <strong>使用ポイント:</strong>
+  <div class="used_point">
   <%= @user.used_point %>
+  </div>
 </p>
 
 <p>
@@ -17,8 +27,14 @@
 <p>
   <strong>Commits:</strong>
   <%= commits %>
-</p>
-<%= button_to 'Color', use_point_user_path(@user), remote: true %>
-<%= button_to 'Size', use_point_user_path(@user), remote: true %>
+  </p>
+<div class="btn-toolbar" role="group">
+  <%= button_to 'Red', red_user_path(@user), :method => :post, :remote => true, class: "btn btn-mini btn-danger btn-group" %>
+<%= button_to 'Green', green_user_path(@user), remote: true, class: "btn btn-mini btn-success btn-group" %>
+<%= button_to 'Blue', blue_user_path(@user), remote: true, class: "btn btn-mini btn-primary btn-group" %>
+</div>
+<br>
+<%= button_to 'Size', use_point_user_path(@user), :method => :post, :remote => true, class: "btn btn-mini btn-info" %>
+<br>
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>

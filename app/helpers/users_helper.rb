@@ -2,6 +2,7 @@ require 'json'
 require 'open-uri'
 module UsersHelper
   def commits
+=begin
     content = open("https://api.github.com/users/77toMARYO/events").read
     json_data = JSON.parse(content)
 
@@ -18,5 +19,7 @@ module UsersHelper
       end
     end
     commits
+=end
+    commits = 25
   end
 end
